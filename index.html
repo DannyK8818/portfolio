@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Danny | Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@500;600&display=swap');
+        
+        :root {
+            --accent: #34d399;
+        }
+        
+        body {
+            font-family: 'Inter', system_ui, sans-serif;
+        }
+        
+        .font-display {
+            font-family: 'Space Grotesk', 'Inter', sans-serif;
+            font-weight: 600;
+        }
+
+        .section-header {
+            font-size: 2.25rem;
+            line-height: 2.5rem;
+            font-weight: 600;
+            letter-spacing: -0.025em;
+        }
+
+        .nav-link {
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .nav-link:hover {
+            color: #34d399;
+            transform: translateY(-1px);
+        }
+
+        .project-card {
+            transition: transform 0.3s cubic-bezier(0.4, 0.0, 0.2, 1), 
+                       box-shadow 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+        }
+        
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+        }
+
+        .skill-pill {
+            transition: all 0.2s ease;
+        }
+        
+        .skill-pill:hover {
+            transform: translateY(-2px);
+            background-color: #166534;
+            color: white;
+        }
+
+        .smooth-scroll {
+            scroll-behavior: smooth;
+        }
+
+        .accent {
+            color: #34d399;
+        }
+
+        .glass {
+            background: rgba(255,255,255,0.05);
+            backdrop-filter: blur(12px);
+        }
+    </style>
+</head>
+<body class="bg-zinc-950 text-zinc-200 smooth-scroll">
+    <!-- Navbar -->
+    <nav class="sticky top-0 z-50 bg-zinc-950/95 backdrop-blur-lg border-b border-zinc-800">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex items-center gap-x-3">
+                    <div class="w-9 h-9 bg-emerald-400 rounded-2xl flex items-center justify-center">
+                        <span class="text-zinc-950 font-bold text-2xl tracking-tighter">D</span>
+                    </div>
+                    <span class="font-display text-2xl tracking-tighter font-semibold">Danny</span>
+                </div>
+
+                <!-- Desktop Nav -->
+                <div class="hidden md:flex items-center gap-x-9 text-sm font-medium">
+                    <a href="#about" class="nav-link text-zinc-400 hover:text-white">About</a>
+                    <a href="#projects" class="nav-link text-zinc-400 hover:text-white">Work</a>
+                    <a href="#skills" class="nav-link text-zinc-400 hover:text-white">Skills</a>
+                    <a href="#contact" class="nav-link text-zinc-400 hover:text-white">Contact</a>
+                </div>
+
+                <!-- CTA + Mobile -->
+                <div class="flex items-center gap-x-4">
+                    <a href="#contact" 
+                       class="hidden md:inline-flex items-center px-5 py-2.5 text-sm font-semibold bg-white text-zinc-950 rounded-3xl hover:bg-emerald-400 hover:text-white transition-all active:scale-[0.985]">
+                        Say hi
+                    </a>
+                    
+                    <!-- Mobile menu button -->
+                    <button id="mobile-menu-btn"
+                            class="md:hidden w-10 h-10 flex items-center justify-center text-zinc-400 hover:text-white">
+                        <i class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden border-t border-zinc-800 bg-zinc-950">
+            <div class="px-6 py-6 flex flex-col gap-y-4 text-sm font-medium">
+                <a href="#about" class="mobile-link py-2 text-zinc-400 hover:text-white">About</a>
+                <a href="#projects" class="mobile-link py-2 text-zinc-400 hover:text-white">Work</a>
+                <a href="#skills" class="mobile-link py-2 text-zinc-400 hover:text-white">Skills</a>
+                <a href="#contact" class="mobile-link py-2 text-zinc-400 hover:text-white">Contact</a>
+                <a href="#contact" 
+                   class="mt-2 inline-flex items-center justify-center px-5 py-3 text-sm font-semibold bg-white text-zinc-950 rounded-3xl hover:bg-emerald-400 hover:text-white transition-all">
+                    Say hi
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <header class="max-w-6xl mx-auto px-6 pt-20 pb-24">
+        <div class="max-w-3xl">
+            <div class="inline-flex items-center gap-x-2 px-4 py-1.5 rounded-3xl bg-zinc-900 border border-zinc-800 mb-8">
+                <div class="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></div>
+                <span class="text-sm font-medium text-emerald-400">Open to opportunities</span>
+            </div>
+            
+            <h1 class="font-display text-7xl md:text-8xl tracking-tighter leading-none mb-6">
+                Hey, I'm <span class="accent">Danny</span>.
+            </h1>
+            
+            <p class="text-3xl md:text-4xl tracking-tight text-zinc-400 mb-8">
+                Builder. Explorer. <span class="text-zinc-500">26.</span>
+            </p>
+            
+            <p class="max-w-md text-xl text-zinc-400 mb-10">
+                I turn ideas into clean, functional digital experiences. 
+                Currently chasing curiosity through code and creative projects.
+            </p>
+
+            <div class="flex flex-wrap gap-4">
+                <a href="#projects" 
+                   class="inline-flex items-center justify-center gap-x-3 px-8 py-4 bg-emerald-400 hover:bg-emerald-300 active:bg-emerald-500 text-zinc-950 font-semibold rounded-3xl transition-all text-base">
+                    <span>Explore my work</span>
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+                
+                <a href="#contact" 
+                   class="inline-flex items-center justify-center gap-x-3 px-8 py-4 border border-zinc-700 hover:bg-zinc-900 text-white font-semibold rounded-3xl transition-all text-base">
+                    Get in touch
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- About -->
+    <section id="about" class="max-w-6xl mx-auto px-6 py-16 border-t border-zinc-800">
+        <div class="grid md:grid-cols-12 gap-x-12 items-start">
+            <div class="md:col-span-5 mb-10 md:mb-0">
+                <div class="sticky top-24">
+                    <span class="text-emerald-400 text-sm font-semibold tracking-[2px] uppercase">CHAPTER 01</span>
+                    <h2 class="section-header mt-3">A bit about me</h2>
+                </div>
+            </div>
+            
+            <div class="md:col-span-7 text-lg text-zinc-400 leading-relaxed space-y-6">
+                <p>I'm a 26-year-old guy who gets genuinely excited about building things that feel good to use. I love clean interfaces, thoughtful details, and projects that make life a little more interesting.</p>
+                
+                <p>Right now I'm deep into web development, tinkering with modern tools, and exploring whatever random curiosity hits me next — from side projects to learning new tech. I believe good design and solid code should work together, not fight each other.</p>
+                
+                <p>When I'm not coding, you'll probably find me outside, reading something weird, or trying to understand how the universe actually works (still a work in progress).</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects" class="max-w-6xl mx-auto px-6 py-16 border-t border-zinc-800 bg-zinc-900/50">
+        <div class="max-w-2xl mb-12">
+            <span class="text-emerald-400 text-sm font-semibold tracking-[2px] uppercase">CHAPTER 02</span>
+            <h2 class="section-header mt-3">Selected work</h2>
+            <p class="mt-4 text-zinc-400">A few things I've been playing with lately. More coming soon.</p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Project 1 -->
+            <div class="project-card group bg-zinc-900 border border-zinc-800 rounded-3xl overflow-hidden flex flex-col">
+                <div class="h-2 bg-gradient-to-r from-emerald-400 to-teal-400"></div>
+                <div class="p-8 flex-1 flex flex-col">
+                    <div class="flex items-center justify-between mb-6">
+                        <span class="px-3 py-1 text-xs font-medium bg-emerald-950 text-emerald-400 rounded-2xl">Featured</span>
+                        <span class="text-xs text-zinc-500">2026</span>
+                    </div>
+                    
+                    <h3 class="font-display text-3xl tracking-tight mb-3 group-hover:text-emerald-400 transition-colors">This Portfolio</h3>
+                    <p class="text-zinc-400 mb-8 flex-1">The site you're looking at right now. Clean, fast, and built to feel personal. Fully responsive with subtle interactions.</p>
+                    
+                    <div class="flex flex-wrap gap-2 mb-8">
+                        <span class="px-3 py-1 text-xs bg-zinc-800 text-zinc-400 rounded-2xl">Tailwind</span>
+                        <span class="px-3 py-1 text-xs bg-zinc-800 text-zinc-400 rounded-2xl">HTML</span>
+                        <span class="px-3 py-1 text-xs bg-zinc-800 text-zinc-400 rounded-2xl">JS</span>
+                    </div>
+
+                    <div class="flex items-center gap-x-4 mt-auto pt-4 border-t border-zinc-800">
+                        <a href="https://github.com/DannyK8818/portfolio" target="_blank" 
+                           class="flex items-center gap-x-2 text-sm font-medium hover:text-emerald-400 transition-colors">
+                            <i class="fa-brands fa-github"></i>
+                            <span>Code</span>
+                        </a>
+                        <span class="text-zinc-700">•</span>
+                        <span class="text-sm text-emerald-400 font-medium">You're here</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 2 -->
+            <div class="project-card group bg-zinc-900 border border-zinc-800 rounded-3xl overflow-hidden flex flex-col">
+                <div class="h-2 bg-gradient-to-r from-violet-400 to-fuchsia-400"></div>
+                <div class="p-8 flex-1 flex flex-col">
+                    <div class="flex items-center justify-between mb-6">
+                        <span class="px-3 py-1 text-xs font-medium bg-violet-950 text-violet-400 rounded-2xl">Side Project</span>
+                        <span class="text-xs text-zinc-500">2025</span>
+                    </div>
+                    
+                    <h3 class="font-display text-3xl tracking-tight mb-3 group-hover:text-emerald-400 transition-colors">Cosmic Todo</h3>
+                    <p class="text-zinc-400 mb-8 flex-1">A playful todo app with space-themed productivity. Dark mode by default, keyboard shortcuts, and satisfying animations. Built to make checking things off feel cosmic.</p>
+                    
+                    <div class="flex flex-wrap gap-2 mb-8">
+                        <span class="px-3 py-1 text-xs bg-zinc-800 text-zinc-400 rounded-2xl">React</span>
+                        <span class="px-3 py-1 text-xs bg-zinc-800 text-zinc-400 rounded-2xl">Framer Motion</span>
+                        <span class="px-3 py-1 text-xs bg-zinc-800 text-zinc-400 rounded-2xl">Local Storage</span>
+                    </div>
+
+                    <div class="flex items-center gap-x-4 mt-auto pt-4 border-t border-zinc-800">
+                        <a href="#" class="flex items-center gap-x-2 text-sm font-medium hover:text-emerald-400 transition-colors">
+                            <i class="fa-solid fa-globe"></i>
+                            <span>Live demo</span>
+                        </a>
+                        <span class="text-zinc-700">•</span>
+                        <a href="#" class="flex items-center gap-x-2 text-sm font-medium hover:text-emerald-400 transition-colors">
+                            <i class="fa-brands fa-github"></i>
+                            <span>Code</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 3 -->
+            <div class="project-card group bg-zinc-900 border border-zinc-800 rounded-3xl overflow-hidden flex flex-col">
+                <div class="h-2 bg-gradient-to-r from-amber-400 to-orange-400"></div>
+                <div class="p-8 flex-1 flex flex-col">
+                    <div class="flex items-center justify-between mb-6">
+                        <span class="px-3 py-1 text-xs font-medium bg-amber-950 text-amber-400 rounded-2xl">Experiment</span>
+                        <span class="text-xs text-zinc-500">2025</span>
+                    </div>
+                    
+                    <h3 class="font-display text-3xl tracking-tight mb-3 group-hover:text-emerald-400 transition-colors">Curiosity Lab</h3>
+                    <p class="text-zinc-400 mb-8 flex-1">A collection of small experiments and tools I built while learning. Random generators, micro-interactions, and weird little utilities that sparked joy (or at least curiosity).</p>
+                    
+                    <div class="flex flex-wrap gap-2 mb-8">
+                        <span class="px-3 py-1 text-xs bg-zinc-800 text-zinc-400 rounded-2xl">Vanilla JS</span>
+                        <span class="px-3 py-1 text-xs bg-zinc-800 text-zinc-400 rounded-2xl">CSS</span>
+                        <span class="px-3 py-1 text-xs bg-zinc-800 text-zinc-400 rounded-2xl">APIs</span>
+                    </div>
+
+                    <div class="flex items-center gap-x-4 mt-auto pt-4 border-t border-zinc-800">
+                        <a href="#" class="flex items-center gap-x-2 text-sm font-medium hover:text-emerald-400 transition-colors">
+                            <i class="fa-solid fa-globe"></i>
+                            <span>Live demo</span>
+                        </a>
+                        <span class="text-zinc-700">•</span>
+                        <a href="#" class="flex items-center gap-x-2 text-sm font-medium hover:text-emerald-400 transition-colors">
+                            <i class="fa-brands fa-github"></i>
+                            <span>Code</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <p class="text-center text-sm text-zinc-500 mt-10">More projects dropping soon — stay tuned.</p>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills" class="max-w-6xl mx-auto px-6 py-16 border-t border-zinc-800">
+        <div class="max-w-2xl mb-12">
+            <span class="text-emerald-400 text-sm font-semibold tracking-[2px] uppercase">CHAPTER 03</span>
+            <h2 class="section-header mt-3">What I play with</h2>
+        </div>
+
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+            <div class="skill-pill px-6 py-4 bg-zinc-900 border border-zinc-800 rounded-3xl text-center">
+                <div class="font-semibold mb-1">Frontend</div>
+                <div class="text-xs text-zinc-400">HTML • CSS • JavaScript • Tailwind • React</div>
+            </div>
+            <div class="skill-pill px-6 py-4 bg-zinc-900 border border-zinc-800 rounded-3xl text-center">
+                <div class="font-semibold mb-1">Backend & APIs</div>
+                <div class="text-xs text-zinc-400">Node.js • Python • FastAPI • REST</div>
+            </div>
+            <div class="skill-pill px-6 py-4 bg-zinc-900 border border-zinc-800 rounded-3xl text-center">
+                <div class="font-semibold mb-1">Tools & Workflow</div>
+                <div class="text-xs text-zinc-400">Git • GitHub • VS Code • Figma • Terminal</div>
+            </div>
+            <div class="skill-pill px-6 py-4 bg-zinc-900 border border-zinc-800 rounded-3xl text-center">
+                <div class="font-semibold mb-1">Currently Exploring</div>
+                <div class="text-xs text-zinc-400">TypeScript • Next.js • AI tools • Design systems</div>
+            </div>
+        </div>
+
+        <p class="text-center text-xs text-zinc-500 mt-8">Always learning. Always building.</p>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="max-w-6xl mx-auto px-6 py-16 border-t border-zinc-800 bg-zinc-900/50">
+        <div class="max-w-2xl">
+            <span class="text-emerald-400 text-sm font-semibold tracking-[2px] uppercase">CHAPTER 04</span>
+            <h2 class="section-header mt-3">Let's build something together</h2>
+            <p class="mt-4 text-lg text-zinc-400">Got an idea, a project, or just wanna chat? I'm always down for good conversations and cool collaborations.</p>
+        </div>
+
+        <div class="mt-10 grid md:grid-cols-2 gap-8">
+            <!-- Contact info -->
+            <div class="space-y-8">
+                <div>
+                    <div class="text-sm text-zinc-500 mb-2">EMAIL</div>
+                    <a href="mailto:hello@danny.dev" class="text-2xl font-medium hover:text-emerald-400 transition-colors">hello@danny.dev</a>
+                </div>
+                
+                <div>
+                    <div class="text-sm text-zinc-500 mb-2">ELSEWHERE</div>
+                    <div class="flex flex-col gap-y-3 text-lg">
+                        <a href="https://github.com/DannyK8818" target="_blank" class="flex items-center gap-x-3 hover:text-emerald-400 transition-colors">
+                            <i class="fa-brands fa-github w-5"></i>
+                            <span>GitHub</span>
+                        </a>
+                        <a href="#" class="flex items-center gap-x-3 hover:text-emerald-400 transition-colors">
+                            <i class="fa-brands fa-linkedin w-5"></i>
+                            <span>LinkedIn (coming soon)</span>
+                        </a>
+                        <a href="#" class="flex items-center gap-x-3 hover:text-emerald-400 transition-colors">
+                            <i class="fa-brands fa-x-twitter w-5"></i>
+                            <span>X / Twitter</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Simple contact form -->
+            <div class="bg-zinc-900 border border-zinc-800 rounded-3xl p-8">
+                <form id="contact-form" class="space-y-6">
+                    <div>
+                        <label class="block text-xs tracking-widest text-zinc-500 mb-2">YOUR NAME</label>
+                        <input type="text" id="name" required 
+                               class="w-full bg-zinc-950 border border-zinc-700 focus:border-emerald-400 rounded-2xl px-5 py-3 text-white placeholder:text-zinc-600 outline-none transition-colors">
+                    </div>
+                    <div>
+                        <label class="block text-xs tracking-widest text-zinc-500 mb-2">YOUR EMAIL</label>
+                        <input type="email" id="email" required 
+                               class="w-full bg-zinc-950 border border-zinc-700 focus:border-emerald-400 rounded-2xl px-5 py-3 text-white placeholder:text-zinc-600 outline-none transition-colors">
+                    </div>
+                    <div>
+                        <label class="block text-xs tracking-widest text-zinc-500 mb-2">MESSAGE</label>
+                        <textarea id="message" rows="4" required 
+                                  class="w-full bg-zinc-950 border border-zinc-700 focus:border-emerald-400 rounded-3xl px-5 py-4 text-white placeholder:text-zinc-600 outline-none resize-y min-h-[120px] transition-colors"></textarea>
+                    </div>
+                    
+                    <button type="submit" 
+                            class="w-full py-4 bg-emerald-400 hover:bg-emerald-300 active:bg-emerald-500 text-zinc-950 font-semibold rounded-3xl transition-all flex items-center justify-center gap-x-2">
+                        <span>Send message</span>
+                        <i class="fa-solid fa-paper-plane"></i>
+                    </button>
+                </form>
+                <p id="form-success" class="hidden mt-4 text-center text-emerald-400 text-sm font-medium">Thanks! I'll get back to you soon 🚀</p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="border-t border-zinc-800 py-10">
+        <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-y-4 text-sm text-zinc-500">
+            <div>© 2026 Danny. Built with curiosity.</div>
+            <div class="flex items-center gap-x-6">
+                <a href="https://github.com/DannyK8818/portfolio" target="_blank" class="hover:text-white transition-colors">View source</a>
+                <span>•</span>
+                <span>Made with ❤️ + Tailwind</span>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Tailwind config
+        function initTailwind() {
+            document.documentElement.style.setProperty('--accent', '#34d399');
+        }
+        
+        // Mobile menu
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        if (mobileBtn && mobileMenu) {
+            mobileBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+                const icon = mobileBtn.querySelector('i');
+                if (icon) {
+                    icon.classList.toggle('fa-bars');
+                    icon.classList.toggle('fa-times');
+                }
+            });
+            
+            // Close mobile menu on link click
+            document.querySelectorAll('.mobile-link').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                    const icon = mobileBtn.querySelector('i');
+                    if (icon) {
+                        icon.classList.remove('fa-times');
+                        icon.classList.add('fa-bars');
+                    }
+                });
+            });
+        }
+
+        // Contact form handler (demo)
+        const form = document.getElementById('contact-form');
+        const successMsg = document.getElementById('form-success');
+        
+        if (form) {
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Simple demo behavior
+                form.style.display = 'none';
+                successMsg.classList.remove('hidden');
+                successMsg.classList.add('block');
+                
+                // Reset after 4 seconds for demo
+                setTimeout(() => {
+                    form.style.display = 'block';
+                    successMsg.classList.add('hidden');
+                    successMsg.classList.remove('block');
+                    form.reset();
+                }, 4000);
+            });
+        }
+
+        // Keyboard shortcut hint (fun little touch)
+        document.addEventListener('keydown', function(e) {
+            if (e.key === '/' && document.activeElement.tagName === 'BODY') {
+                e.preventDefault();
+                const contactSection = document.getElementById('contact');
+                contactSection.scrollIntoView({ behavior: 'smooth' });
+                setTimeout(() => {
+                    const nameInput = document.getElementById('name');
+                    if (nameInput) nameInput.focus();
+                }, 600);
+            }
+        });
+
+        // Init everything
+        window.onload = function() {
+            initTailwind();
+            
+            // Optional: subtle console easter egg
+            console.log('%c[Portfolio] Hey there, curious one 👀 Press "/" anywhere to jump to contact', 'color:#3f3f46');
+        };
+    </script>
+</body>
+</html>
